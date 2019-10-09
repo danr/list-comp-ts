@@ -1,5 +1,5 @@
 
-function generate<T>(template: (self: T) => {[K in keyof T]: () => T[K][] | undefined | false}): T {
+function generate<T>(template: (self: T) => {[K in keyof T]: () => T[K][] | undefined | false}): T[] {
   const current = {} as any
   function go(queue: any): any {
     if (queue.length == 0) {
@@ -23,7 +23,7 @@ function range(lo: number, hi: number): number[] {
   return out
 }
 
-const triples: {a: number, b: number, c: number, _: {}} = generate(self => ({
+const triples: {a: number, b: number, c: number, _: {}}[] = generate(self => ({
   a: () => range(1, 18),
   b: () => range(1, self.a),
   c: () => range(1, self.b),
