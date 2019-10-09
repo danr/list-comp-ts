@@ -1,5 +1,5 @@
 
-function generate<T, K extends keyof T>(template: (self: T) => {[k in K]: () => T[K][] | undefined | null | false}): T {
+function generate<T>(template: (self: T) => {[K in keyof T]: () => T[K][] | undefined | false}): T {
   const current = {} as any
   function go(queue: any): any {
     if (queue.length == 0) {
