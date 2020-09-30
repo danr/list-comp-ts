@@ -1,3 +1,6 @@
+// Alternative solution using generator function https://gist.github.com/MaiaVictor/bc0c02b6d1fbc7e3dbae838fb1376c80#gistcomment-3197204
+
+
 interface ListComprehension<A> {
   emit(...values: A[]): void
   lit<B>(...values: B[]): B
